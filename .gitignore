@@ -1,0 +1,53 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+$py.class
+*.py[cod]
+
+# Environment and secrets
+.env
+*.env 
+.env.*
+
+
+# Virtual environments
+.venv
+.venv/
+env/
+ENV/
+
+# build and distribution folders
+build/
+dist/
+*.egg-info
+.eggs/
+
+# ide and editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# logs and temporary files
+*.log
+*.pid
+*.seed
+*.bak
+*.swp
+*.tem
+
+# docker
+*.tar
+*.img
+*.pid
+*.sock
+
+
+
+# MySQL / SQLite / local DB files
+*.db
+*.sqlite3
