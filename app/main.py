@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.db import init_models
-from app.routers import auth, users, tours
+from app.routers import auth, users, tours, booking
 from contextlib import asynccontextmanager
 
 
@@ -36,3 +36,4 @@ app.include_router(auth.router, prefix="/auth", tags=["auth"])
 app.include_router(users.router, prefix="/users", tags=["users"])
 app.include_router(tours.router, prefix="/tours", tags=["tours"])
 
+app.include_router(booking.router, prefix="/booking", tags=["booking"])

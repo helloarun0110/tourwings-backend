@@ -10,3 +10,5 @@ async def get_current_admin(db: AsyncSession = Depends(get_db)):
     if not admin:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Admin only")
     return admin
+
+

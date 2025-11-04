@@ -7,7 +7,9 @@ class Settings(BaseSettings):
     SECRET_KEY: str = "change-me"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     ALGORITHM: str = "HS256"
-    DATABASE_URL: str = "mysql+aiomysql://touruser:tourPass41!@localhost:3306/tourwings"
+    # DATABASE_URL: str = "mysql+aiomysql://touruser:tourPass41!@localhost:3306/tourwings"
+    ASYNC_DATABASE_URL: str
+    SYNC_DATABASE_URL: str
 
     BACKEND_CORS_ORIGINS: str = "http://localhost:5173,http://localhost:8000"
 

@@ -51,3 +51,10 @@ dist/
 # MySQL / SQLite / local DB files
 *.db
 *.sqlite3
+
+
+# Ignore Alembic cache files and logs
+migrations/__pycache__/
+migrations/.cache
+migrations/*.log
+*.ini

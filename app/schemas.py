@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from typing import Optional
 from pydantic import BaseModel, EmailStr
 
@@ -39,3 +39,25 @@ class TourRead(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+
+class BookingCreate(BaseModel):
+    tour_id: int
+    persons: int
+    age: int | None = None
+    notes: str | None = None
+
+
+class BookingRead(BaseModel):
+    id: int
+    tour_id : int
+    user_id : int
+    persons: int
+    total_price: float
+    booking_date: datetime
+    status: str
+
+    class Config:
+        orm_mode = True
+        
