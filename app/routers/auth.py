@@ -3,10 +3,11 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 from sqlmodel import select
 from app.db import get_db
 from app.models import User
-from app.schemas import UserCreate, UserRead, Token
+from app.schemas import UserCreate, UserRead, Token, UserLogin
 from app.core.security import get_password_hash, verify_password, create_access_token
 
 router = APIRouter()
+
 
 @router.post('/register', response_model=UserRead)
 async def register(payload: UserCreate, db: AsyncSession = Depends(get_db)):
@@ -20,7 +21,7 @@ async def register(payload: UserCreate, db: AsyncSession = Depends(get_db)):
     return user
 
 @router.post('/login', response_model=Token)
-async def login(payload: UserCreate, db: AsyncSession = Depends(get_db)):
+async def login(payload: UserLogin, db: AsyncSession = Depends(get_db)):
     q = await db.exec(select(User).where(User.email == payload.email))
     user = q.first()
     if not user or not verify_password(payload.password, user.hashed_password):
